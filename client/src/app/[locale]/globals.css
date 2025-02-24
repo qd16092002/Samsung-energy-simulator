@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #dde0e5;
+}
+
+@font-face {
+  font-family: "thin";
+  src: url("../../assets/fonts/Pretendard-Thin.otf");
+}
+@font-face {
+  font-family: "extralight";
+  src: url("../../assets/fonts/Pretendard-ExtraLight.otf");
+}
+@font-face {
+  font-family: "light";
+  src: url("../../assets/fonts/Pretendard-Light.otf");
+}
+
+@font-face {
+  font-family: "normal";
+  src: url("../../assets/fonts/Pretendard-Regular.otf");
+}
+
+@font-face {
+  font-family: "medium";
+  src: url("../../assets/fonts/Pretendard-Medium.otf");
+}
+
+@font-face {
+  font-family: "semibold";
+  src: url("../../assets/fonts/Pretendard-SemiBold.otf");
+}
+
+@font-face {
+  font-family: "bold";
+  src: url("../../assets/fonts/Pretendard-Bold.otf");
+}
+
+@font-face {
+  font-family: "extrabold";
+  src: url("../../assets/fonts/Pretendard-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: "black";
+  src: url("../../assets/fonts/Pretendard-Black.otf");
+}
+
+.main-checkbox {
+  position: relative;
+}
+.main-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+.main-checkbox label {
+  padding-left: 20px;
+  position: relative;
+}
+.main-checkbox label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+  background: url("/check.svg") center / contain no-repeat;
+  cursor: pointer;
+}
+
+.main-checkbox input[type="checkbox"]:checked + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+  background: url("/checked.svg") center / contain no-repeat;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .main-checkbox label::before {
+    top: -2px;
+  }
+  .main-checkbox input[type="checkbox"]:checked + label::before {
+    top: -2px;
+  }
+}
+
+@layer utilities {
+  .border-dashed-custom {
+    border-width: 0.4px; 
+    border-style: dashed; 
+    border-color: #364DB1; 
+  }
+}

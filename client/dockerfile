@@ -1,0 +1,19 @@
+# build environment
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build 
+
+# production environment
+FROM node:20-alpine  
+WORKDIR /app
+COPY --from=build /app .  
+
+# Cài đặt serve hoặc cài đặt thêm các package nếu cần
+RUN npm install -g serve
+
+# Mở cổng 3000 để phục vụ ứng dụng
+EXPOSE 3000
+CMD ["npm", "start"]  
